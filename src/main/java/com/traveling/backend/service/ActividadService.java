@@ -111,4 +111,12 @@ public class ActividadService {
                 .mapToDouble(Actividad::getCosto)
                 .sum();
     }
+
+   public void eliminarActividad(Long id) {
+        
+        if (!actividadRepository.existsById(id)) {
+            throw new RuntimeException("No se encontró la actividad con ID: " + id);
+        }
+        actividadRepository.deleteById(id);
+    }
 }

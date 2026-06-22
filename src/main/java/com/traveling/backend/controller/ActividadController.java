@@ -50,4 +50,10 @@ public class ActividadController {
         return ResponseEntity.ok(
                 actividadService.calcularCostoTotal(viajeId));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarActividad(@PathVariable Long id) {
+        actividadService.eliminarActividad(id); 
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -6,12 +6,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") 
-                .allowedOrigins("https://duranyarith906faria-spec-traveling.vercel.app") 
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);
-    }
+   @Override
+public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**")
+            // Asegúrate de incluir SÓLO el dominio oficial:
+            .allowedOrigins("https://duranyarith906faria-spec-traveling.vercel.app")
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+            .allowedHeaders("*")
+            .allowCredentials(true);
+}
 }
